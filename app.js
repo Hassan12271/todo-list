@@ -41,7 +41,7 @@ function deleteElement(removeElement) {
 
 // Function to edit a task
 function editElement(editBtn) {
-    let parent = editBtn.parentElement.parentElement;
+    let parent = editBtn.parentElement;
     let currentText = parent.querySelector("p").innerText;
 
     // Create input field and set value
@@ -59,7 +59,7 @@ function editElement(editBtn) {
 
     // Replace paragraph with input and save button
     parent.innerHTML = "";
-    parent.appendChild(inputField);
+    parent.parentElement.appendChild(inputField);
     parent.appendChild(saveButton);
 }
 
