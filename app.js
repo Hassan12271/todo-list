@@ -41,7 +41,7 @@ function deleteElement(removeElement) {
 
 // Function to edit a task
 function editElement(editBtn) {
-    let parent = editBtn.parentElement;
+    let parent = editBtn.parentElement.parentElement;
     let currentText = parent.querySelector("p").innerText;
 
     // Create input field and set value
@@ -59,24 +59,22 @@ function editElement(editBtn) {
 
     // Replace paragraph with input and save button
     parent.innerHTML = "";
-    parent.parentElement.appendChild(inputField);
+    parent.appendChild(inputField);
     parent.appendChild(saveButton);
 }
 
 // Function to save edited task
 function saveEdit(saveBtn) {
-    let parent = saveBtn.parentElement.parentElement;
+    let parent = saveBtn.parentElement;
     let newText = parent.querySelector("input").value;
 
     // Restore original structure with updated text
     parent.innerHTML = `
-        <li>
         <p style="display:inline;">${newText}</p>
         <div class="inner-container"> 
         <input type="checkbox" name="task" class="checkBox" onclick="checkBoxValueCheaker(this)"> 
         <button class="edit" onclick="editElement(this)">Edit</button>
-        </li>
-        </li>`;
+        </div>`;
 }
 
 // setInterval(function () {
