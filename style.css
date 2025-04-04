@@ -131,7 +131,8 @@ ul li p {
 
 /* Error popup basic style */
 .error-popup {
-    background-color: #000; /* red */
+    background-color: #000;
+    /* red */
     color: white;
     padding: 15px;
     position: fixed;
@@ -153,12 +154,16 @@ ul li p {
     opacity: 1;
     transition: opacity 0.4s ease;
     box-shadow: #ffffff90 0px 0px 1000px 100px;
-  }
+}
 
 
 @media (max-width:767px) {
     .main-contaner {
         width: 100%;
+    }
+
+    .error-popup {
+        width: 90vh;
     }
 }
 
