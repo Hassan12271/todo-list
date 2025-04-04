@@ -1,9 +1,10 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-body{
+
+body {
     width: 100vw;
     min-height: 100vh;
     display: flex;
@@ -12,7 +13,8 @@ body{
     padding: 10px;
     overflow: hidden;
 }
-.main-contaner h1{
+
+.main-contaner h1 {
     font-size: 3em;
     line-height: 2em;
     color: #fff;
@@ -20,26 +22,31 @@ body{
     animation: slideIn 1s ease-out;
     transition: all 0.5s ease;
 }
-.main-contaner ul{
+
+.main-contaner ul {
     margin-top: 20px;
     display: flex;
     flex-direction: column;
     row-gap: 20px;
     width: 100%;
 }
-.main-contaner ul li{
+
+.main-contaner ul li {
     list-style-type: none;
 }
-.main-contaner .input-container{
+
+.main-contaner .input-container {
     display: flex;
     animation: inputContainer 1s ease-in-out;
 }
-.main-contaner input{
+
+.main-contaner input {
     width: 100%;
     padding: 10px;
     border-radius: 0px;
 }
-.main-contaner button{
+
+.main-contaner button {
     width: 80px;
     padding: 10px;
     background-color: #333;
@@ -47,14 +54,17 @@ body{
     cursor: pointer;
     border: none;
 }
-.input-container{
+
+.input-container {
     box-shadow: 0px 0px 5px 1px #fff;
     border-radius: 5px;
 }
-.main-contaner{
+
+.main-contaner {
     width: 50%;
 }
-ul li{
+
+ul li {
     color: #fff;
     text-transform: capitalize;
     display: flex;
@@ -65,56 +75,94 @@ ul li{
     padding: 10px;
 
 }
-ul li p{
+
+ul li p {
     width: 80%;
 }
 
-.inner-container{
+.inner-container {
     min-width: 20%;
     display: flex;
     justify-content: end;
     align-items: center;
     column-gap: 5px;
 }
-@media ( max-width:500px) {
-    .main-contaner{
-        width: 100%;
-    }
-}
+
 /* Slide-in animation when task is added */
 @keyframes slideIn {
     from {
-      opacity: 0;
-      transform: translateX(-300px);
+        opacity: 0;
+        transform: translateX(-300px);
     }
+
     to {
-      opacity: 1;
-      transform: translateX(0);
+        opacity: 1;
+        transform: translateX(0);
     }
-  }
-  
-  .List-container {
+}
+
+.List-container {
     animation: slideIn 0.3s ease-out;
     transition: all 0.3s ease;
     margin: 8px 0;
-  }
-  
-  /* Fade out for delete */
-  .fade-out {
+}
+
+/* Fade out for delete */
+.fade-out {
     opacity: 0;
     transform: translateX(300px);
     transition: all 0.4s ease;
-  }
-  
-  /* Smooth style change for line-through */
-  .List-item {
+}
+
+/* Smooth style change for line-through */
+.List-item {
     transition: all 0.3s ease;
-  }
-  @keyframes inputContainer {
+}
+
+@keyframes inputContainer {
     from {
         transform: translateY(1000px);
     }
+
     to {
         transform: translateY(0px);
     }
+}
+
+/* Error popup basic style */
+.error-popup {
+    background-color: #000; /* red */
+    color: white;
+    padding: 15px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 50vw;
+    height: 50vh;
+    text-align: center;
+    z-index: 9999;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 2em;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    opacity: 1;
+    transition: opacity 0.4s ease;
+    box-shadow: #ffffff90 0px 0px 1000px 100px;
   }
+
+
+@media (max-width:767px) {
+    .main-contaner {
+        width: 100%;
+    }
+}
+
+/* Hide class */
+.hidden {
+    display: none;
+}

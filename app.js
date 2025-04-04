@@ -4,7 +4,7 @@ let ulEl = document.querySelector("ul");
 
 function addTitle() {
     if (inputEl.value.trim() === "") {
-        alert("Put Your Task");
+        showError("Please enter a task!");
     } else {
         let li = document.createElement("li");
         li.className = "List-container";
@@ -94,4 +94,14 @@ function saveEdit(saveBtn) {
     setTimeout(() => {
         parent.classList.remove("List-container");
     }, 300); // match CSS duration
+}
+function showError(message) {
+    const errorPopup = document.getElementById("errorPopup");
+    errorPopup.textContent = message;
+    errorPopup.classList.remove("hidden");
+
+    // Hide after 3 seconds
+    setTimeout(() => {
+        errorPopup.classList.add("hidden");
+    }, 3000);
 }
