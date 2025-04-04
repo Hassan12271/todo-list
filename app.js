@@ -42,10 +42,14 @@ function checkBoxValueCheaker(hello) {
     }
 }
 
-// Function to remove a task
 function deleteElement(removeElement) {
-    removeElement.parentElement.parentElement.remove();
+    let taskItem = removeElement.parentElement.parentElement;
+    taskItem.classList.add("fade-out");
+    setTimeout(() => {
+        taskItem.remove();
+    }, 400); // Match transition time in CSS
 }
+
 
 // Function to edit a task
 function editElement(editBtn) {
@@ -71,21 +75,23 @@ function editElement(editBtn) {
     parent.appendChild(saveButton);
 }
 
-// Function to save edited task
 function saveEdit(saveBtn) {
     let parent = saveBtn.parentElement;
     let newText = parent.querySelector("input").value;
 
     // Restore original structure with updated text
     parent.innerHTML = `
-        <p style="display:inline;">${newText}</p>
+        <p style="display:inline;" class="List-item">${newText}</p>
         <div class="inner-container"> 
         <input type="checkbox" name="task" class="checkBox" onclick="checkBoxValueCheaker(this)"> 
         <button class="edit" onclick="editElement(this)">Edit</button>
         </div>`;
-}
 
-// setInterval(function () {
-//     let allEl = document.querySelector("*");
-//     allEl.style.transition = "0.1s linear";
-// }, 100)
+    // 👇 Simple animation class add karo
+    parent.classList.add("List-container");
+
+    // Optional: Remove class after animation ends to avoid future conflicts
+    setTimeout(() => {
+        parent.classList.remove("List-container");
+    }, 300); // match CSS duration
+}
