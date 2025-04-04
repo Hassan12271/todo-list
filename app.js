@@ -8,7 +8,7 @@ function addTitle() {
     } else {
         let li = document.createElement("li");
         li.innerHTML = `
-            <p style="display:inline;">${inputEl.value}</p>
+            <p style="display:inline;" class="List-item">${inputEl.value}</p>
             <div class="inner-container"> 
             <input type="checkbox" name="task" class="checkBox" onclick="checkBoxValueCheaker(this)"> 
             <button class="edit" onclick="editElement(this)">Edit</button>
@@ -19,15 +19,22 @@ function addTitle() {
 }
 
 // Function to add a delete button when a checkbox is clicked
+let ischecked = true;
 function checkBoxValueCheaker(hello) {
     let parent = hello.parentElement;
+    let pEl = parent.parentElement.querySelector(".List-item");
     let deleteButton = parent.querySelector(".delete");
 
     if (hello.checked) {
         if (!deleteButton) {
             parent.insertAdjacentHTML("beforeend", '<button class="delete" onclick="deleteElement(this)">Remove</button>');
+            ischecked = false;
+            pEl.style.textDecoration = "line-through";
         }
     } else {
+
+        ischecked = true;
+        pEl.style.textDecoration = "none";
         if (deleteButton) {
             deleteButton.remove();
         }
