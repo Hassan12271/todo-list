@@ -7,6 +7,7 @@ function addTitle() {
         alert("Put Your Task");
     } else {
         let li = document.createElement("li");
+        li.className = "List-container";
         li.innerHTML = `
             <p style="display:inline;" class="List-item">${inputEl.value}</p>
             <div class="inner-container"> 
